@@ -7,7 +7,7 @@ export default function Navbar() {
   const pathname = usePathname();
   
   const navItems = [
-    { icon: '🔍', label: 'Discover', href: '/' },
+    { icon: '🧽', label: 'Discover', href: '/' },
     { icon: '🔄', label: 'Swap', href: '/swap' },
     { icon: '🏦', label: 'Vault', href: '/vault' },
     { icon: '📊', label: 'Portfolio', href: '/portfolio' },
@@ -20,26 +20,26 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed left-0 top-0 h-screen w-64 bg-white dark:bg-[#030711] border-r border-gray-200 dark:border-gray-800">
+    <nav className="fixed left-0 top-0 h-screen w-64 bg-yellow-200 dark:bg-[#030711] border-r-4 border-green-400">
       <div className="p-6">
         <div className="flex items-center space-x-2 mb-8">
-          <span className="text-2xl">✨</span>
-          <h1 className="text-xl font-semibold text-black dark:text-white">Web3 App</h1>
+          <span className="text-3xl animate-bounce">🧽</span>
+          <h1 className="text-xl font-bold text-black dark:text-white">Sponge</h1>
         </div>
         
-        <div className="space-y-1">
+        <div className="space-y-2">
           {navItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className={`flex items-center space-x-3 px-4 py-3 rounded-xl text-sm transition-colors ${
+              className={`flex items-center space-x-3 px-4 py-3 rounded-xl text-sm transition-all transform hover:scale-105 ${
                 pathname === item.href
-                  ? 'bg-black text-white dark:bg-white dark:text-black'
-                  : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-[#141921]'
+                  ? 'bg-green-400 text-white shadow-lg'
+                  : 'text-gray-700 dark:text-gray-400 hover:bg-green-100 dark:hover:bg-[#141921]'
               }`}
             >
               <span className="text-xl">{item.icon}</span>
-              <span>{item.label}</span>
+              <span className="font-medium">{item.label}</span>
             </Link>
           ))}
         </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { MemeButton } from './ui/MemeButton';
 
 export default function Hero() {
   return (
@@ -8,29 +9,21 @@ export default function Hero() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="text-center"
+      className="text-center p-8 bg-gradient-to-b from-green-400 to-green-600 rounded-3xl border-4 border-yellow-400"
     >
-      <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-600 text-transparent bg-clip-text animate-gradient">
-        Hello, I'm John Doe
+      <h1 className="text-6xl font-bold mb-6 text-white">
+        Hello, I'm Sponge 🧽
       </h1>
-      <p className="text-xl text-gray-400 mb-8">
-        Full Stack Developer & Designer
+      <p className="text-xl text-yellow-200 mb-8">
+        Your Friendly Web3 Assistant
       </p>
       <div className="flex gap-4 justify-center">
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="px-6 py-3 bg-blue-600 rounded-lg font-medium hover:bg-blue-700 transition-colors"
-        >
-          View Projects
-        </motion.button>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="px-6 py-3 bg-gray-800 rounded-lg font-medium hover:bg-gray-700 transition-colors"
-        >
-          Contact Me
-        </motion.button>
+        <MemeButton>
+          View Projects 🚀
+        </MemeButton>
+        <MemeButton className="bg-black hover:bg-gray-800 text-yellow-400">
+          Contact Me 💌
+        </MemeButton>
       </div>
     </motion.div>
   );

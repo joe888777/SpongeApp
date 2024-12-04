@@ -1,51 +1,39 @@
 'use client';
 
-import { useVaultStore } from '../store/vaultStore';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '../components/ui/tabs';
+import VaultTabs from '../components/vault/VaultTabs';
 
 export default function VaultPage() {
-  const { activeTab, tokens, setActiveTab } = useVaultStore();
+  const stakeData = {
+    tokenSymbol: 'SOL',
+    balance: 0.006,
+    dollarValue: 1.68,
+    currentPrice: 229.087,
+    estimatedApy: 8
+  };
+
+  const unstakeData = {
+    tokenSymbol: 'SOL',
+    balance: 0.87780624,
+    dollarValue: 201.10,
+    currentPrice: 229.087,
+  };
 
   return (
-    <main className="ml-64 p-8">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-2xl font-semibold mb-8 text-black dark:text-white">Vault</h1>
-        
-        <div className="bg-white dark:bg-[#030711] rounded-2xl border border-gray-200 dark:border-gray-800">
-          <Tabs defaultValue="stake" onValueChange={(value) => setActiveTab(value as 'stake' | 'unstake')}>
-            <TabsList className="w-full p-1">
-              <TabsTrigger value="stake" className="flex-1">Stake</TabsTrigger>
-              <TabsTrigger value="unstake" className="flex-1">Unstake</TabsTrigger>
-            </TabsList>
-
-            <div className="p-6 space-y-4">
-              {tokens.map((token) => (
-                <div key={token.symbol} className="p-6 bg-white dark:bg-[#141921] rounded-xl border border-gray-100 dark:border-gray-800">
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xl">{token.icon}</span>
-                      <span className="font-medium text-black dark:text-white">{token.symbol}</span>
-                    </div>
-                    <span className="text-xl font-semibold text-black dark:text-white">{token.value}</span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
-                    <span>Available: {token.available}</span>
-                    <span>${token.value}</span>
-                  </div>
-                </div>
-              ))}
-
-              <div className="text-center text-sm text-gray-500 dark:text-gray-400 py-4 bg-gray-50 dark:bg-[#141921] rounded-xl">
-                1 SOL = ~0.975340 tSOL
-              </div>
-
-              <button className="w-full py-4 bg-white text-black dark:bg-black dark:text-white rounded-xl font-medium hover:opacity-90 transition-all border border-gray-200 dark:border-gray-800">
-                Liquid Stake
-              </button>
+    <div className="min-h-screen bg-yellow-50 dark:bg-[#030711] text-black dark:text-white">
+      <main className="ml-64 p-8">
+        <div className="max-w-xl mx-auto">
+          <div className="mb-8">
+            <div className="bg-blue-400 text-white p-6 rounded-2xl inline-block transform hover:scale-105 transition-all border-4 border-blue-600">
+              <h1 className="text-2xl font-bold">Earn Rewards by staking your tokens 🎉</h1>
             </div>
-          </Tabs>
+          </div>
+
+          <VaultTabs 
+            stakeData={stakeData}
+            unstakeData={unstakeData}
+          />
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
   );
 }
