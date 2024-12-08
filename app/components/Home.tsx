@@ -5,11 +5,6 @@ import FeatureCard from '../components/FeatureCard';
 export default function HomePage() {
   const features = [
     {
-      icon: '🔍',
-      title: 'Discover',
-      description: 'Explore new opportunities and features in our Web3 ecosystem.',
-    },
-    {
       icon: '🔄',
       title: 'Swap',
       description: 'Exchange tokens quickly and efficiently with our decentralized swap feature.',

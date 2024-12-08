@@ -2,12 +2,14 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
+import spongeIcon from '@/assets/image/sponge.svg';
 
 export default function Navbar() {
   const pathname = usePathname();
   
   const navItems = [
-    { icon: '🧽', label: 'Discover', href: '/' },
+    { icon: <Image width={20} height={28} alt='sponge' src={spongeIcon} />, label: 'Discover', href: '/' },
     { icon: '🔄', label: 'Swap', href: '/swap' },
     { icon: '🏦', label: 'Vault', href: '/vault' },
     { icon: '📊', label: 'Portfolio', href: '/portfolio' },
@@ -23,7 +25,9 @@ export default function Navbar() {
     <nav className="fixed left-0 top-0 h-screen w-64 bg-yellow-200 dark:bg-[#030711] border-r-4 border-green-400">
       <div className="p-6">
         <div className="flex items-center space-x-2 mb-8">
-          <span className="text-3xl animate-bounce">🧽</span>
+          <span className="text-3xl animate-bounce">
+            <Image width={20} height={28} alt='sponge' src={spongeIcon} />
+          </span>
           <h1 className="text-xl font-bold text-black dark:text-white">Sponge</h1>
         </div>
         

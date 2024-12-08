@@ -1,4 +1,5 @@
 import './globals.css';
+import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Navbar from './components/Navbar';
 import { ThemeProvider } from './components/ThemeProvider';
@@ -6,10 +7,12 @@ import WalletContextProvider from './components/ui/walletContextProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata = {
-  title: 'Sponge Finance',
-  description: 'Modern Web3 dashboard application',
-};
+
+export const metadata: Metadata = {
+  title: "Sponge",
+  description: "Stake SOL, Get Exposure from Bluechips",
+  icons: 'favicon.ico',
+}
 
 export default function RootLayout({
   children,
