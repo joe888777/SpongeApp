@@ -40,7 +40,7 @@ const WalletContextProvider: React.FC<{ children: ReactNode }> = (props: {
     >
       <div className="w-full flex justify-end p-6">
         <div className="flex items-center space-x-4">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <UnifiedWalletButton />
         </div>
       </div>
